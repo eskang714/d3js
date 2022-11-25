@@ -35,9 +35,10 @@ const generatePath = (requestedPackage, specificFile) => {
   htmlScriptImport(pathString)
 }
 
-//
-// d3 it up
-//
+//////////////
+//-d3 it up-//
+//////////////
+
 const createSamp = () => {
   const svg = d3.select('#canvas')
   const rect = svg.append("rect")
