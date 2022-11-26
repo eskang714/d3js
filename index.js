@@ -49,3 +49,47 @@ const createSamp = () => {
     .attr('fill', 'blue')
 }
 
+
+
+///////////////////////
+// data stuff arrays //
+///////////////////////
+
+var sampleArray = []
+
+const checkArray = () => {
+  if (sampleArray.length == 0) return console.log("It's empty yo") 
+  console.log(sampleArray)
+}
+
+// find a way to not call the index 0 for the shallow copy
+const checkArrayLastValue = () => {
+  if (sampleArray.length == 0) return console.log("It's empty yo")
+  let element = sampleArray.slice(-1)
+  console.log(sampleArray.length)
+  console.log(element[0].name)
+  console.log(element[0].value)
+}
+
+const addToArray = (name, value) => {
+  if (name == null) name = ''
+  if (value == null) value = null
+  sampleArray.push({name, value})
+  checkArrayLastValue()
+}
+
+
+////////////////////////////////////////////
+// creating visual element for array data //
+////////////////////////////////////////////
+
+const addArrayElementToVis = () => {
+  const svg = d3.select('#canvas')
+  const rect = svg.append("rect")
+    .attr('x', 25)
+    .attr('y', 0)
+    .attr('width', 100)
+    .attr('height', 40)
+    .attr('fill', 'blue')
+}
+
