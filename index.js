@@ -14,7 +14,7 @@ const htmlScriptImport = (foundPathString) => {
   '<script src="index.js"/>'
   const node = document.createElement("script")
   node.src = foundPathString
-  console.log(node)
+  // console.log(node)
   document.getElementById("headjs").appendChild(node)
 }
 
@@ -83,13 +83,57 @@ const addToArray = (name, value) => {
 // creating visual element for array data //
 ////////////////////////////////////////////
 
+// the canvas is currently set to 50%
+// need to find a way to create a way for dealing with odd values
+// 1 will obviously fill the whole box
+// 2 will split it, 
+// 3 will have to be 2 squares and 1 rectangle
+// 4 will split it again
+// 5 will create 5 rectangles
+
+const parentBorders = () => {
+  var numberOfItems = sampleArray.length
+}
+
+
 const addArrayElementToVis = () => {
   const svg = d3.select('#canvas')
   const rect = svg.append("rect")
     .attr('x', 25)
     .attr('y', 0)
     .attr('width', 100)
-    .attr('height', 40)
+    .attr('height', 100)
     .attr('fill', 'blue')
 }
 
+/////////////////
+// treemapping //
+/////////////////
+
+// creating treemap with 1d Array
+
+// tmArr = treemapArray = []
+let tmArr = [1,2,3,4,5,6,7]
+let tmData = {
+  children: tmArr.map(lmnt => {
+    return {item: lmnt}
+  })
+}
+
+const root = d3.hierarchy(tmData)
+root.sum(d => d.item)
+
+d3.treemap()
+  .size([400, 200])
+  .paddingOuter(10)
+(root) 
+
+d3.select('svg g')
+  .selectAll('rect')
+  .data(root.descendants())
+  .enter()
+  .append('rect')
+  .attr('x', d => d.x0)
+  .attr('y', d => d.y0)
+  .attr('width', d => d.x1 - d.x0)
+  .attr('height', d => d.y1 - d.y0)
