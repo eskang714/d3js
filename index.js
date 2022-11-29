@@ -78,41 +78,9 @@ const addToArray = (name, value) => {
   checkArrayLastValue()
 }
 
-
-////////////////////////////////////////////
-// creating visual element for array data //
-////////////////////////////////////////////
-
-// the canvas is currently set to 50%
-// need to find a way to create a way for dealing with odd values
-// 1 will obviously fill the whole box
-// 2 will split it, 
-// 3 will have to be 2 squares and 1 rectangle
-// 4 will split it again
-// 5 will create 5 rectangles
-
-const parentBorders = () => {
-  var numberOfItems = sampleArray.length
-}
-
-
-const addArrayElementToVis = () => {
-  const svg = d3.select('#canvas')
-  const rect = svg.append("rect")
-    .attr('x', 25)
-    .attr('y', 0)
-    .attr('width', 100)
-    .attr('height', 100)
-    .attr('fill', 'blue')
-}
-
-/////////////////
-// treemapping //
-/////////////////
-
+// treemapping /*
 // creating treemap with 1d Array
-
-// tmArr = treemapArray = []
+// tmArr = treemapArray = [] */
 let tmArr = [1,2,3,4,5,6,7]
 let tmData = {
   children: tmArr.map(lmnt => {
